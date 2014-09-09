@@ -30,25 +30,9 @@
      </div>
 <div class="btn-group-vertical edit-wrap" ng-hide="editForm.$visible">
   <button type="button" class="btn btn-default" tooltip-placement="left" tooltip="Edit" ng-click="editForm.$show()"><i class="fa fa-edit"></i></button>
-  <button type="button" class="btn btn-default" tooltip-placement="left" tooltip="Delete" ng-click="open()"><i class="fa fa-trash-o"></i></button>
+  <button type="button" class="btn btn-default" tooltip-placement="left" tooltip="Delete" ng-click="removeUser()"><i class="fa fa-trash-o"></i></button>
 </div>
-    <script type="text/ng-template" id="myModalContent.html">
-        <div class="modal-header">
-            <h3 class="modal-title">I'm a modal!</h3>
-        </div>
-        <div class="modal-body">
-            <ul>
-                <li ng-repeat="item in items">
-                    <a ng-click="selected.item = item">{{ item }}</a>
-                </li>
-            </ul>
-            Selected: <b>{{ selected.item }}</b>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-        </div>
-    </script>
+
   </li>
 
 </ul>

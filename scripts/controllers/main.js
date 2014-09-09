@@ -14,9 +14,6 @@ mainctrl.controller('MainCtrl', [ '$scope', '$http', function ($scope, $http) {
     $scope.test = 'Hello world';
     $scope.method = 'GET';
     $scope.url = 'http://api.randomuser.me/';// AppAPI URL;
-//   $scope.count = function(count) {
-//       console.log(count);
-//    };
     
     $http({method: $scope.method, url: $scope.url, params: {results:'10'} }).
         success(function(data, status) {
@@ -36,7 +33,7 @@ $scope.removeUser = function(userToRemove) {
     var index = $scope.users.indexOf(userToRemove);
     $scope.users.splice(index, 1);
   };
-     
+
 $scope.addUser=function(){
    $scope.users.push({name:$scope.ModelText});
     $scope.ModelText='';
