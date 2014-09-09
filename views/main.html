@@ -1,0 +1,54 @@
+<div class="filter-wrap navbar navbar-default animated" data-spy="affix" data-offset-top="400">
+     <form class="navbar-form pull-left" role="search">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search" ng-model="query">
+  </div>
+    </form>
+
+        <button type="button" class="btn btn-default navbar-btn" ng-click="predicate = 'user.name.last'; reverse=!reverse;editForm.$show()">Name 
+            <i ng-show="!reverse" class="fa fa-sort-alpha-asc"></i><i ng-show="reverse" class="fa fa-sort-alpha-desc"></i>
+        </button>
+            <button type="button" class="btn btn-primary navbar-btn" ng-click="addUser();scrollTo('#new-user')">Add User</button>
+</div>
+
+<ul class="media-list">   
+
+<li class="media user-wrap animated" ng-repeat="data in users | orderBy:predicate:reverse | filter:query" id="{{data.user.registered || 'new-user'}}">
+    <img class="lazy media-object" ng-src="{{data.user.picture || 'http://placepic.me/avatars/600-600'}}" alt="{{data.user.name.first}} {{data.user.name.last}}">
+    
+    <div class="media-body">
+        <h3 class="media-heading"><span editable-text="data.user.name.first" e-form="editForm">{{data.user.name.first || 'First'}}</span> <span editable-text="data.user.name.last" e-form="editForm">{{data.user.name.last || 'Last Name'}}</span> <br class="visible-sm-block visible-xs-block"><small editable-text="data.user.registered" e-form="editForm">ID# {{data.user.registered || 'empty'}}</small></h3>
+    <address>
+        <span editable-text="data.user.location.street" e-name="street" e-form="editForm">{{data.user.location.street || 'Address'}}</span> <br class="visible-xs-block"><span editable-text="data.user.location.city" e-name="city" e-form="editForm">{{data.user.location.city || 'City'}}</span>, 
+        <span editable-text="data.user.location.state" e-name="state" e-typeahead="state for state in states | filter:$viewValue | limitTo:8" e-required e-form="editForm">{{data.user.location.state || 'State'}}</span> 
+        <span editable-text="data.user.location.zip" e-name="zip" e-form="editForm">{{data.user.location.zip || 'Zip'}}</span>
+    </address>
+<ul class="list-unstyled">
+    <li editable-text="data.user.phone" e-name="phone" e-form="editForm"><i class="fa fa-phone"></i> {{data.user.phone || '(xxx) xxx-xxxx'}}</li>
+    <li editable-text="data.user.email" e-name="mail" e-form="editForm"><i class="fa fa-envelope"></i> <a ng-href="mailto:{{data.user.email}}">{{data.user.email || 'example@domain.com'}}</a></li>
+</ul>
+     </div>
+<div class="btn-group-vertical edit-wrap" ng-hide="editForm.$visible">
+  <button type="button" class="btn btn-default" tooltip-placement="left" tooltip="Edit" ng-click="editForm.$show()"><i class="fa fa-edit"></i></button>
+  <button type="button" class="btn btn-default" tooltip-placement="left" tooltip="Delete" ng-click="open()"><i class="fa fa-trash-o"></i></button>
+</div>
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">I'm a modal!</h3>
+        </div>
+        <div class="modal-body">
+            <ul>
+                <li ng-repeat="item in items">
+                    <a ng-click="selected.item = item">{{ item }}</a>
+                </li>
+            </ul>
+            Selected: <b>{{ selected.item }}</b>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+  </li>
+
+</ul>
