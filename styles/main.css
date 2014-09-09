@@ -1,6 +1,6 @@
 /* Space out content a bit */
 body {
-  padding-top: 20px 0;
+  padding: 20px 0;
   min-width: 300px;
     -webkit-font-smoothing: anti-alias;
 }
