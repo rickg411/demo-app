@@ -13,7 +13,6 @@ angular
   .module('demoApp', [
     'ngAnimate',
     'ngRoute',
-    'ngSanitize',
     'ui.bootstrap',
     'xeditable'
   ]);
