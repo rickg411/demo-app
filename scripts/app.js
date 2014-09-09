@@ -12,12 +12,10 @@ var app =
 angular
   .module('demoApp', [
     'ngAnimate',
-    'ngCookies',
-    'ngResource',
     'ngRoute',
     'ngSanitize',
     'ui.bootstrap',
-      'xeditable'
+    'xeditable'
   ]);
   
 app.config(function ($routeProvider) {
