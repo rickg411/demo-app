@@ -179,5 +179,10 @@ body {
   }
 }
 @media screen and (max-width: 480px) {
-      
+      .navbar-form {
+      float: none!important;
+      width: 90%;
+      margin:auto;
+      }
+      .navbar {text-align:center;}
 }
